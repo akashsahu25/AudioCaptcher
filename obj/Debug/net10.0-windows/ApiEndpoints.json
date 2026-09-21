@@ -1,0 +1,117 @@
+[
+  {
+    "ContainingType": "AudioStreaming.Backend.Controllers.AudioCaptureController",
+    "Method": "Devices",
+    "RelativePath": "api/audio/devices",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AudioStreaming.Backend.Controllers.AudioCaptureController",
+    "Method": "Processes",
+    "RelativePath": "api/audio/processes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AudioStreaming.Backend.Controllers.AudioCaptureController",
+    "Method": "Sessions",
+    "RelativePath": "api/audio/sessions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AudioStreaming.Backend.Controllers.AudioCaptureController",
+    "Method": "Status",
+    "RelativePath": "api/audio/sessions/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AudioStreaming.Backend.Controllers.AudioCaptureController",
+    "Method": "Stop",
+    "RelativePath": "api/audio/sessions/{id}/stop",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AudioStreaming.Backend.Controllers.AudioChunksController",
+    "Method": "List",
+    "RelativePath": "api/audio/sessions/{sessionId}/chunks",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sessionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AudioStreaming.Backend.Controllers.AudioChunksController",
+    "Method": "Download",
+    "RelativePath": "api/audio/sessions/{sessionId}/chunks/{sequence}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sessionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "sequence",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AudioStreaming.Backend.Controllers.AudioCaptureController",
+    "Method": "Start",
+    "RelativePath": "api/audio/start",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "AudioStreaming.Backend.Models.StartCaptureRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

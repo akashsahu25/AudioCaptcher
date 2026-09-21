@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "dgSpecHash": "QojG09tBeUg=",
+  "success": true,
+  "projectFilePath": "D:\\Audio process\\AudioStreaming.Backend\\AudioStreaming.Backend.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\concentus\\2.2.2\\concentus.2.2.2.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\concentus.oggfile\\1.0.7\\concentus.oggfile.1.0.7.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\messagepack\\2.5.302\\messagepack.2.5.302.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\messagepack.annotations\\2.5.302\\messagepack.annotations.2.5.302.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.11\\microsoft.aspnetcore.openapi.10.0.11.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.signalr.protocols.messagepack\\10.0.11\\microsoft.aspnetcore.signalr.protocols.messagepack.10.0.11.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.net.stringtools\\17.6.3\\microsoft.net.stringtools.17.6.3.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.openapi\\2.7.5\\microsoft.openapi.2.7.5.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\naudio\\3.0.1\\naudio.3.0.1.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\naudio.asio\\3.0.1\\naudio.asio.3.0.1.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\naudio.core\\3.0.1\\naudio.core.3.0.1.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\naudio.dmo\\3.0.1\\naudio.dmo.3.0.1.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\naudio.midi\\3.0.1\\naudio.midi.3.0.1.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\naudio.wasapi\\3.0.1\\naudio.wasapi.3.0.1.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\naudio.winforms\\3.0.1\\naudio.winforms.3.0.1.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\naudio.winmm\\3.0.1\\naudio.winmm.3.0.1.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\system.numerics.tensors\\9.0.0\\system.numerics.tensors.9.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

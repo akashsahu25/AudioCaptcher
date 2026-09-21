@@ -1,0 +1,6 @@
+@AudioStreaming.Backend_HostAddress = http://localhost:5165
+
+GET {{AudioStreaming.Backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

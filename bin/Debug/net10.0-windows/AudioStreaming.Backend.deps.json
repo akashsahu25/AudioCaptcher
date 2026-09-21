@@ -1,0 +1,329 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "AudioStreaming.Backend/1.0.0": {
+        "dependencies": {
+          "Concentus": "2.2.2",
+          "Concentus.Oggfile": "1.0.7",
+          "Microsoft.AspNetCore.OpenApi": "10.0.11",
+          "Microsoft.AspNetCore.SignalR.Protocols.MessagePack": "10.0.11",
+          "NAudio": "3.0.1"
+        },
+        "runtime": {
+          "AudioStreaming.Backend.dll": {}
+        }
+      },
+      "Concentus/2.2.2": {
+        "runtime": {
+          "lib/net8.0/Concentus.dll": {
+            "assemblyVersion": "2.2.2.0",
+            "fileVersion": "2.2.2.0"
+          }
+        }
+      },
+      "Concentus.Oggfile/1.0.7": {
+        "dependencies": {
+          "Concentus": "2.2.2"
+        },
+        "runtime": {
+          "lib/net8.0/Concentus.Oggfile.dll": {
+            "assemblyVersion": "1.0.7.0",
+            "fileVersion": "1.0.7.0"
+          }
+        }
+      },
+      "MessagePack/2.5.302": {
+        "dependencies": {
+          "MessagePack.Annotations": "2.5.302",
+          "Microsoft.NET.StringTools": "17.6.3"
+        },
+        "runtime": {
+          "lib/net6.0/MessagePack.dll": {
+            "assemblyVersion": "2.5.0.0",
+            "fileVersion": "2.5.302.46609"
+          }
+        }
+      },
+      "MessagePack.Annotations/2.5.302": {
+        "runtime": {
+          "lib/netstandard2.0/MessagePack.Annotations.dll": {
+            "assemblyVersion": "2.5.0.0",
+            "fileVersion": "2.5.302.46609"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.OpenApi/10.0.11": {
+        "dependencies": {
+          "Microsoft.OpenApi": "2.7.5"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.AspNetCore.OpenApi.dll": {
+            "assemblyVersion": "10.0.11.0",
+            "fileVersion": "10.0.1126.37416"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.SignalR.Protocols.MessagePack/10.0.11": {
+        "dependencies": {
+          "MessagePack": "2.5.302"
+        },
+        "runtime": {
+          "lib/net10.0/Microsoft.AspNetCore.SignalR.Protocols.MessagePack.dll": {
+            "assemblyVersion": "10.0.11.0",
+            "fileVersion": "10.0.1126.37416"
+          }
+        }
+      },
+      "Microsoft.NET.StringTools/17.6.3": {
+        "runtime": {
+          "lib/net7.0/Microsoft.NET.StringTools.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "17.6.3.22601"
+          }
+        }
+      },
+      "Microsoft.OpenApi/2.7.5": {
+        "runtime": {
+          "lib/net8.0/Microsoft.OpenApi.dll": {
+            "assemblyVersion": "2.7.5.0",
+            "fileVersion": "2.7.5.0"
+          }
+        }
+      },
+      "NAudio/3.0.1": {
+        "dependencies": {
+          "NAudio.Asio": "3.0.1",
+          "NAudio.Core": "3.0.1",
+          "NAudio.Dmo": "3.0.1",
+          "NAudio.Midi": "3.0.1",
+          "NAudio.Wasapi": "3.0.1",
+          "NAudio.WinForms": "3.0.1",
+          "NAudio.WinMM": "3.0.1"
+        },
+        "runtime": {
+          "lib/net9.0-windows7.0/NAudio.dll": {
+            "assemblyVersion": "3.0.1.0",
+            "fileVersion": "3.0.1.0"
+          }
+        }
+      },
+      "NAudio.Asio/3.0.1": {
+        "dependencies": {
+          "NAudio.Core": "3.0.1"
+        },
+        "runtime": {
+          "lib/net9.0-windows7.0/NAudio.Asio.dll": {
+            "assemblyVersion": "3.0.1.0",
+            "fileVersion": "3.0.1.0"
+          }
+        }
+      },
+      "NAudio.Core/3.0.1": {
+        "dependencies": {
+          "System.Numerics.Tensors": "9.0.0"
+        },
+        "runtime": {
+          "lib/net9.0/NAudio.Core.dll": {
+            "assemblyVersion": "3.0.1.0",
+            "fileVersion": "3.0.1.0"
+          }
+        }
+      },
+      "NAudio.Dmo/3.0.1": {
+        "dependencies": {
+          "NAudio.Core": "3.0.1"
+        },
+        "runtime": {
+          "lib/net9.0-windows7.0/NAudio.Dmo.dll": {
+            "assemblyVersion": "3.0.1.0",
+            "fileVersion": "3.0.1.0"
+          }
+        }
+      },
+      "NAudio.Midi/3.0.1": {
+        "dependencies": {
+          "NAudio.Core": "3.0.1"
+        },
+        "runtime": {
+          "lib/net9.0/NAudio.Midi.dll": {
+            "assemblyVersion": "3.0.1.0",
+            "fileVersion": "3.0.1.0"
+          }
+        }
+      },
+      "NAudio.Wasapi/3.0.1": {
+        "dependencies": {
+          "NAudio.Core": "3.0.1"
+        },
+        "runtime": {
+          "lib/net9.0/NAudio.Wasapi.dll": {
+            "assemblyVersion": "3.0.1.0",
+            "fileVersion": "3.0.1.0"
+          }
+        }
+      },
+      "NAudio.WinForms/3.0.1": {
+        "dependencies": {
+          "NAudio.WinMM": "3.0.1"
+        },
+        "runtime": {
+          "lib/net9.0-windows7.0/NAudio.WinForms.dll": {
+            "assemblyVersion": "3.0.1.0",
+            "fileVersion": "3.0.1.0"
+          }
+        }
+      },
+      "NAudio.WinMM/3.0.1": {
+        "dependencies": {
+          "NAudio.Core": "3.0.1",
+          "NAudio.Midi": "3.0.1"
+        },
+        "runtime": {
+          "lib/net9.0-windows7.0/NAudio.WinMM.dll": {
+            "assemblyVersion": "3.0.1.0",
+            "fileVersion": "3.0.1.0"
+          }
+        }
+      },
+      "System.Numerics.Tensors/9.0.0": {
+        "runtime": {
+          "lib/net9.0/System.Numerics.Tensors.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.24.52809"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AudioStreaming.Backend/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Concentus/2.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2B9YmHPKO+k7YpAAnqmiXwiMJnfjfj1C868RszOll2iZWLnGTAiC1q21L/d7CvTan7T+hyqU8dR0Dcy3cpjVfQ==",
+      "path": "concentus/2.2.2",
+      "hashPath": "concentus.2.2.2.nupkg.sha512"
+    },
+    "Concentus.Oggfile/1.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rKWtI5oiTWqK2ol1aWvIT1BRTPi07Uo1hAet0ysQoZQqFo/mxBRwr+ERw89fIdkL3tbMf3ncoW7b3HDGx8Sk4g==",
+      "path": "concentus.oggfile/1.0.7",
+      "hashPath": "concentus.oggfile.1.0.7.nupkg.sha512"
+    },
+    "MessagePack/2.5.302": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5DZsKli4dMEpm/glcMAheuO8/IesfaTskbfsuvgnQwWFKS5FN7Z6yNx+5F+UW94E+9N2qt8Zs63/XVzpLsElgA==",
+      "path": "messagepack/2.5.302",
+      "hashPath": "messagepack.2.5.302.nupkg.sha512"
+    },
+    "MessagePack.Annotations/2.5.302": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PTHQHbMJzx1VtUUCpnvPavD7o5X9s2dAJ4uQHAP2kBCwJKICpPTZq0qxzbB4/6iJJiIxem8zlxyfldGAx1SjSQ==",
+      "path": "messagepack.annotations/2.5.302",
+      "hashPath": "messagepack.annotations.2.5.302.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.OpenApi/10.0.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-R/1EATnPLU+gRfB6lwVkMcymmyAY5ppBBdRN/5lhNEiT3xP1sWccuSFkU/f1lQvN/WgRq5Vn8AhCdE3fqgsL/w==",
+      "path": "microsoft.aspnetcore.openapi/10.0.11",
+      "hashPath": "microsoft.aspnetcore.openapi.10.0.11.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.SignalR.Protocols.MessagePack/10.0.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rZXe/AAxEMCYcya2CqK7veMVavIm04+CLOyXpmU1clXJ0MMaU2OogU0e8kshN2/ahOhYC54HkkOFr/gFvNtJBw==",
+      "path": "microsoft.aspnetcore.signalr.protocols.messagepack/10.0.11",
+      "hashPath": "microsoft.aspnetcore.signalr.protocols.messagepack.10.0.11.nupkg.sha512"
+    },
+    "Microsoft.NET.StringTools/17.6.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-N0ZIanl1QCgvUumEL1laasU0a7sOE5ZwLZVTn0pAePnfhq8P7SvTjF8Axq+CnavuQkmdQpGNXQ1efZtu5kDFbA==",
+      "path": "microsoft.net.stringtools/17.6.3",
+      "hashPath": "microsoft.net.stringtools.17.6.3.nupkg.sha512"
+    },
+    "Microsoft.OpenApi/2.7.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0FA67RSnRM4tcBKqiqVu/HPdZ9+QOKbmeRjxRUGTCjPU4C0bmUhd97Dso7Yild5P7nOV6GxJ2xrK0Kv/O9xp0w==",
+      "path": "microsoft.openapi/2.7.5",
+      "hashPath": "microsoft.openapi.2.7.5.nupkg.sha512"
+    },
+    "NAudio/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-viewQ/yBZKOckMabTWnO+xb7ACw7k9BgjDqwYxOHRyFGQX7tEu67Vcn4rbcPWErp+DkkYQye6pKmdrB1xQNJGw==",
+      "path": "naudio/3.0.1",
+      "hashPath": "naudio.3.0.1.nupkg.sha512"
+    },
+    "NAudio.Asio/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Ccqs+wtIgkrsw4KMdIpW+ZZDLd5Br/RXDNvTqzrLgjDdTnp0w7RQSq407H5uR3ThPuMJrzQM+A9nHL2esnzVFg==",
+      "path": "naudio.asio/3.0.1",
+      "hashPath": "naudio.asio.3.0.1.nupkg.sha512"
+    },
+    "NAudio.Core/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3fJ6UnkoiNBeeczKd9OozvcE85FvtyYCykmfzEbFW0uB0uT2+keKdconUGkz9qYlhaq1RJDTFptXOooQBYLijA==",
+      "path": "naudio.core/3.0.1",
+      "hashPath": "naudio.core.3.0.1.nupkg.sha512"
+    },
+    "NAudio.Dmo/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YWX+07lP0bObT4IOknjhK66QInHZ8TuEyIFIXv4pPAOnfiRRzL/SN/Gj6qKLGmizicr+wKZEbHiw5VMnVn/OfA==",
+      "path": "naudio.dmo/3.0.1",
+      "hashPath": "naudio.dmo.3.0.1.nupkg.sha512"
+    },
+    "NAudio.Midi/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/YiJWtG6EAIt//BYgd6SMudDT/A4cPgX8qpTbV9sxfJenSli8ujDEkPNF/Fa73YCeimK2bA0K3BmsgQ4olN+Nw==",
+      "path": "naudio.midi/3.0.1",
+      "hashPath": "naudio.midi.3.0.1.nupkg.sha512"
+    },
+    "NAudio.Wasapi/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1j8+HaeAJXFaDaIeVpnaahwAa3ZvMog2bswgmY1JSDysAbeehRx+PIeC0AbNyXZr5gvhu9PfOPD7xwuAEKJcbw==",
+      "path": "naudio.wasapi/3.0.1",
+      "hashPath": "naudio.wasapi.3.0.1.nupkg.sha512"
+    },
+    "NAudio.WinForms/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2CFII/mxJCJX/xurB4rx/fAcEbwhr0pH/WWxiYvHZJiOi+9qYxJWmabP+qG220aALP2vhj+fNddceZ7L/uO+eA==",
+      "path": "naudio.winforms/3.0.1",
+      "hashPath": "naudio.winforms.3.0.1.nupkg.sha512"
+    },
+    "NAudio.WinMM/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qeedyr0TtKWjEirwVG2ZkL1ecYVUfyh+s0YLsau6XC2FqyqT42LfR96kVEuDdv6U9LUp+aNGDiHO5MK/td0BAA==",
+      "path": "naudio.winmm/3.0.1",
+      "hashPath": "naudio.winmm.3.0.1.nupkg.sha512"
+    },
+    "System.Numerics.Tensors/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hyJB4UlpAi19Xr9AXzu2NuagKC4lPfHObNMEAA0HmqFz2rX7wKgzeYzO/jM/eBHDhnUGFFEjk5cOoJaxqg5J4A==",
+      "path": "system.numerics.tensors/9.0.0",
+      "hashPath": "system.numerics.tensors.9.0.0.nupkg.sha512"
+    }
+  }
+}

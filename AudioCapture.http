@@ -1,0 +1,37 @@
+@baseUrl = https://localhost:7056
+@processId = 16192
+@sessionId = 96823bcb-a2e0-4c43-aaca-4977f3d68515
+
+
+### Processes in the backend's Windows session (run backend inside VM)
+GET {{baseUrl}}/api/audio/processes
+
+### Select the audio application's real PID, including its child processes
+POST {{baseUrl}}/api/audio/start
+Content-Type: application/json
+
+{"processId": {{processId}}}
+
+### All sessions
+GET {{baseUrl}}/api/audio/sessions
+
+### One session
+GET {{baseUrl}}/api/audio/sessions/{{sessionId}}
+
+### Recover chunks missed before SignalR join / during reconnect
+GET {{baseUrl}}/api/audio/sessions/{{sessionId}}/chunks
+
+### Download first WebM
+GET {{baseUrl}}/api/audio/sessions/{{sessionId}}/chunks/1
+
+### Stop and finalize pending audio
+POST {{baseUrl}}/api/audio/sessions/{{sessionId}}/stop
+
+### Dedicated playback devices on D2: configure the intended name once on the server
+GET {{baseUrl}}/api/audio/devices
+
+### Capture the dedicated output without a PID
+POST {{baseUrl}}/api/audio/start
+Content-Type: application/json
+
+{"outputKey": "primary"}
