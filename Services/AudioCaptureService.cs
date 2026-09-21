@@ -7,7 +7,7 @@ namespace AudioStreaming.Backend.Services;
 
 public sealed class AudioCaptureService(IWebHostEnvironment environment,
     IAudioChunkProcessor processor, ILogger<AudioCaptureService> logger, IOptions<AudioCaptureOptions> options,
-    AudioStreamPublisher publisher) : IHostedService, IAutomatedCapture
+    AudioStreamPublisher publisher) : IHostedService
 {
     private readonly object _sync = new();
     private readonly Dictionary<Guid, AudioCaptureSession> _sessions = new();
@@ -28,12 +28,6 @@ public sealed class AudioCaptureService(IWebHostEnvironment environment,
     public CaptureStatus? GetStatus(Guid id)
     { lock (_sync) return _sessions.TryGetValue(id, out var session) ? session.Status : null; }
 
-    public Task WaitForCompletionAsync(Guid id)
-    {
-        lock (_sync) return _sessions.TryGetValue(id, out var session)
-            ? session.Finished : Task.CompletedTask;
-    }
-
     public IReadOnlyList<AudioProcess> GetProcesses()
     {
         var result = new List<AudioProcess>();
@@ -53,33 +47,18 @@ public sealed class AudioCaptureService(IWebHostEnvironment environment,
         return result.OrderBy(p => p.ProcessName).ThenBy(p => p.ProcessId).ToArray();
     }
 
-    public async Task<CaptureStatus> StartCaptureAsync(StartCaptureRequest request)
+    public async Task<CaptureStatus> StartCaptureAsync(int processId)
     {
-        if (request.ProcessId.HasValue && request.OutputKey is not null)
-            throw new ArgumentException("Specify either processId or outputKey, not both.");
-        string sourceId, sourceName;
-        long startedAt = 0;
-        if (request.ProcessId is { } processId)
-        {
-            if (!OperatingSystem.IsWindowsVersionAtLeast(10, 0, 20348))
-                throw new PlatformNotSupportedException("Process loopback requires Windows build 20348 or later.");
-            if (processId <= 0 || processId == Environment.ProcessId)
-                throw new ArgumentException("Select the audio application's process ID.");
-            using var target = Process.GetProcessById(processId);
-            using var current = Process.GetCurrentProcess();
-            if (target.HasExited || target.SessionId != current.SessionId)
-                throw new ArgumentException("Select a running application in the backend's Windows login session.");
-            startedAt = target.StartTime.ToUniversalTime().Ticks;
-            sourceId = $"process:{processId}:{startedAt}";
-            sourceName = target.ProcessName;
-        }
-        else
-        {
-            var key = request.OutputKey ?? "primary";
-            var output = DedicatedOutputResolver.Resolve(key, options.Value.DedicatedOutputs, GetDevices());
-            sourceId = output.Id;
-            sourceName = output.Name;
-        }
+        if (!OperatingSystem.IsWindowsVersionAtLeast(10, 0, 20348))
+            throw new PlatformNotSupportedException("Process loopback requires Windows build 20348 or later.");
+        if (processId <= 0 || processId == Environment.ProcessId)
+            throw new ArgumentException("Select the audio application's process ID.");
+        using var target = Process.GetProcessById(processId);
+        using var current = Process.GetCurrentProcess();
+        if (target.HasExited || target.SessionId != current.SessionId)
+            throw new ArgumentException("Select a running application in the backend's Windows login session.");
+        var startedAt = target.StartTime.ToUniversalTime().Ticks;
+        var sourceId = $"process:{processId}:{startedAt}";
         AudioCaptureSession session;
         lock (_sync)
         {
@@ -90,7 +69,7 @@ public sealed class AudioCaptureService(IWebHostEnvironment environment,
             foreach (var id in _sessions.Where(s => s.Value.Finished.IsCompleted)
                          .Select(s => s.Key).Take(Math.Max(0, _sessions.Count - 99)).ToArray())
                 _sessions.Remove(id);
-            session = new(sourceId, sourceName, request.ProcessId, startedAt);
+            session = new(sourceId, target.ProcessName, processId, startedAt);
             _sessions.Add(session.Status.SessionId, session);
             session.Start(Path.Combine(environment.ContentRootPath, "Output", "Recordings"), processor, logger, options.Value.StartThresholdDbfs, options.Value.StartConfirmationMs, options.Value.SilenceTimeoutSeconds);
         }
@@ -129,6 +108,7 @@ public sealed class AudioCaptureService(IWebHostEnvironment environment,
         await Task.WhenAll(sessions.Select(s => s.Finished)).WaitAsync(cancellationToken);
     }
 }
+
 
 
 

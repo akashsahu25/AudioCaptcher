@@ -14,13 +14,13 @@ internal sealed class AudioCaptureSession
     private readonly TaskCompletionSource _ready = new(TaskCreationOptions.RunContinuationsAsynchronously);
     private readonly TaskCompletionSource _finished = new(TaskCreationOptions.RunContinuationsAsynchronously);
 
-    private readonly int? _processId;
+    private readonly int _processId;
     private readonly long _processStartedAt;
-    public AudioCaptureSession(string id, string name, int? processId, long startedAt)
+    public AudioCaptureSession(string id, string name, int processId, long startedAt)
     {
         _processId = processId;
         _processStartedAt = startedAt;
-        _status = new(Guid.NewGuid(), id, name, "Starting", null, 0, 0, 0, null, null, ProcessId: processId, CaptureMode: processId.HasValue ? "Process" : "DedicatedOutput");
+        _status = new(Guid.NewGuid(), id, name, "Starting", null, 0, 0, 0, null, null, ProcessId: processId);
     }
 
     public CaptureStatus Status { get { lock (_sync) return _status; } }
@@ -65,25 +65,14 @@ internal sealed class AudioCaptureSession
 
     private async Task RunAsync(string root, IAudioChunkProcessor processor, double thresholdDbfs, int confirmationMs, int silenceTimeoutSeconds)
     {
-        using var enumerator = new MMDeviceEnumerator();
-        using var device = _processId is null ? enumerator.GetDevice(Status.DeviceId) : null;
-        var builder = new WasapiRecorderBuilder().WithFormat(new WaveFormat(48000, 16, 2));
-        if (_processId is { } processId)
-        {
-            if (!OperatingSystem.IsWindowsVersionAtLeast(10, 0, 20348))
-                throw new PlatformNotSupportedException("Process loopback requires Windows build 20348 or later.");
-            using var target = Process.GetProcessById(processId);
-            if (target.StartTime.ToUniversalTime().Ticks != _processStartedAt || target.HasExited)
-                throw new InvalidOperationException("Selected application exited or its PID was reused.");
-            builder.WithProcessLoopback((uint)processId, ProcessLoopbackMode.IncludeTargetProcessTree);
-        }
-        else
-        {
-            if (device!.DataFlow != DataFlow.Render || device.State != DeviceState.Active)
-                throw new InvalidOperationException("Dedicated playback output is not active.");
-            builder.WithDevice(device).WithLoopbackCapture();
-        }
-        using var capture = await builder.BuildAsync();
+        if (!OperatingSystem.IsWindowsVersionAtLeast(10, 0, 20348))
+            throw new PlatformNotSupportedException("Process loopback requires Windows build 20348 or later.");
+        using var target = Process.GetProcessById(_processId);
+        if (target.StartTime.ToUniversalTime().Ticks != _processStartedAt || target.HasExited)
+            throw new InvalidOperationException("Selected application exited or its PID was reused.");
+        using var capture = await new WasapiRecorderBuilder()
+            .WithProcessLoopback((uint)_processId, ProcessLoopbackMode.IncludeTargetProcessTree)
+            .WithFormat(new WaveFormat(48000, 16, 2)).BuildAsync();
         var raw = Channel.CreateBounded<byte[]>(new BoundedChannelOptions(256)
         { SingleReader = true, SingleWriter = true, FullMode = BoundedChannelFullMode.Wait });
         var completed = Channel.CreateBounded<AudioChunk>(new BoundedChannelOptions(2)
@@ -177,6 +166,7 @@ internal sealed class AudioCaptureSession
         if (started && await stopped.Task is { } failure) throw failure;
     }
 }
+
 
 
 

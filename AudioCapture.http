@@ -1,6 +1,6 @@
 @baseUrl = https://localhost:7056
-@processId = 16192
-@sessionId = 96823bcb-a2e0-4c43-aaca-4977f3d68515
+@processId = 1234
+@sessionId = REPLACE_WITH_SESSION_ID_FROM_START
 
 
 ### Processes in the backend's Windows session (run backend inside VM)
@@ -27,11 +27,4 @@ GET {{baseUrl}}/api/audio/sessions/{{sessionId}}/chunks/1
 ### Stop and finalize pending audio
 POST {{baseUrl}}/api/audio/sessions/{{sessionId}}/stop
 
-### Dedicated playback devices on D2: configure the intended name once on the server
-GET {{baseUrl}}/api/audio/devices
 
-### Capture the dedicated output without a PID
-POST {{baseUrl}}/api/audio/start
-Content-Type: application/json
-
-{"outputKey": "primary"}

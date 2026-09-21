@@ -23,14 +23,13 @@ public sealed class AudioCaptureController(AudioCaptureService capture) : Contro
     [HttpPost("start")]
     public async Task<IActionResult> Start(StartCaptureRequest request)
     {
-        try { return Ok(await capture.StartCaptureAsync(request)); }
+        try { return Ok(await capture.StartCaptureAsync(request.ProcessId)); }
         catch (DeviceBusyException error) { return Conflict(new { message = error.Message }); }
-        catch (AudioOutputUnavailableException error) { return Problem(error.Message, statusCode: 503); }
         catch (ArgumentException error) { return BadRequest(new { message = error.Message }); }
         catch (PlatformNotSupportedException error) { return Problem(error.Message, statusCode: 503); }
         catch (Exception)
         {
-            return Problem("Capture could not start. Check the configured output or application PID, Windows audio availability, login session and server logs.",
+            return Problem("Capture could not start. Check the application PID, Windows audio availability, login session and server logs.",
                 statusCode: StatusCodes.Status503ServiceUnavailable);
         }
     }
@@ -39,3 +38,4 @@ public sealed class AudioCaptureController(AudioCaptureService capture) : Contro
     public async Task<IActionResult> Stop(Guid id) =>
         await capture.StopCaptureAsync(id) is { } status ? Ok(status) : NotFound();
 }
+

@@ -142,3 +142,13 @@ D:\Audio process\artifacts\vlc-validation\AudioStreaming.Backend.deps.json
 D:\Audio process\artifacts\vlc-validation\AudioStreaming.Backend.runtimeconfig.json
 D:\Audio process\artifacts\vlc-validation\AudioStreaming.Backend.dll
 D:\Audio process\artifacts\vlc-validation\AudioStreaming.Backend.pdb
+D:\Audio process\artifacts\restored-process-validation\appsettings.Development.json
+D:\Audio process\artifacts\restored-process-validation\appsettings.json
+D:\Audio process\artifacts\restored-process-validation\AudioStreaming.Backend.staticwebassets.endpoints.json
+D:\Audio process\artifacts\restored-process-validation\AudioStreaming.Backend.exe
+D:\Audio process\artifacts\restored-process-validation\AudioStreaming.Backend.deps.json
+D:\Audio process\artifacts\restored-process-validation\AudioStreaming.Backend.runtimeconfig.json
+D:\Audio process\artifacts\restored-process-validation\AudioStreaming.Backend.dll
+D:\Audio process\artifacts\restored-process-validation\AudioStreaming.Backend.pdb
+D:\Audio process\AudioStreaming.Backend\obj\Debug\net10.0-windows\AudioStreaming.Backend.sourcelink.json
+D:\Audio process\AudioStreaming.Backend\obj\Debug\net10.0-windows\staticwebassets.upToDateCheck.txt

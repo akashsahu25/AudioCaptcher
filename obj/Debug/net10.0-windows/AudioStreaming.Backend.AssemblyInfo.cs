@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AudioStreaming.Backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eb0e90235020af5660e95a58f0fa387d98bd1ebb")]
 [assembly: System.Reflection.AssemblyProductAttribute("AudioStreaming.Backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AudioStreaming.Backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

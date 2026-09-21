@@ -25,18 +25,8 @@ builder.Services.AddOptions<AudioCaptureOptions>()
 builder.Services.AddSingleton<OpusChunkEncoder>();
 builder.Services.AddSingleton<IAudioChunkProcessor, AudioChunkProcessor>();
 builder.Services.AddSingleton<AudioCaptureService>();
-builder.Services.AddSingleton<IAutomatedCapture>(provider => provider.GetRequiredService<AudioCaptureService>());
-builder.Services.Configure<PlaybackAutomationOptions>(builder.Configuration.GetSection("PlaybackAutomation"));
-builder.Services.AddHttpClient("PlaybackControl").ConfigurePrimaryHttpMessageHandler(() =>
-    new HttpClientHandler { AllowAutoRedirect = false, UseProxy = false });
-builder.Services.AddSingleton<HttpPlaybackControl>();
-builder.Services.AddSingleton<VlcPlaybackControl>();
-builder.Services.AddSingleton<MediaInputStore>();
-builder.Services.Configure<AudioMediaOptions>(builder.Configuration.GetSection("AudioMedia"));
-builder.Services.AddSingleton<IPlaybackControl, PlaybackControlRouter>();
-builder.Services.AddSingleton<PlaybackAutomationService>();
 builder.Services.AddHostedService(provider => provider.GetRequiredService<AudioCaptureService>());
-builder.Services.AddHostedService(provider => provider.GetRequiredService<PlaybackAutomationService>());
+
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
@@ -57,3 +47,4 @@ app.MapControllers();
 app.MapHub<AudioStreaming.Backend.Hubs.AudioHub>("/hubs/audio");
 
 app.Run();
+
